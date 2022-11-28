@@ -8,7 +8,20 @@ class CartItem
 
     // TODO Skriv en konstruktor som sätter alla properties
 
+    public function __construct($product, $quantity)
+    {
+        $this->product = $product;
+        $this->quantity = $quantity;
+    }
+
     // TODO Skriv getters för alla properties
+    public function getproduct(){
+        return $this->product;
+    }
+
+    public function getquantity(){
+        return $this->quantity;
+    }
 
 
     //VG: Skall utöka antalet på ett cartItem med 1. 
