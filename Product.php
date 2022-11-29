@@ -18,7 +18,7 @@ class Product
     }
     // TODO Skriv getters för alla properties
 
-    public function getIdt(){
+    public function getId(){
         return $this->id;
     }
 

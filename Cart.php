@@ -27,16 +27,23 @@ class Cart
         //vi vill göra ett nytt cartItem och skapar det. inenhåller vilken produkt och hur många sv den produkten
         $CartItem = new CartItem($product, 1);
         //lägger till den i kundvagnen
-        array_push($this->items, $CartItem);
+
+        //push kan användas för lägga till en men vi skulle nog inte använda den..
+        //array_push($this->items, $CartItem);
+        $this->items[$product->getId()] = $CartItem;
+
+        //$this->items[$product->getId()] = $CartItem;
+        // $items = ["id "=> "1", "title"=>"iPhone 11"];
         return $CartItem;
 
-        $this->product = $product;
+        //$this->product = $product;
     }
 
 
     //Skall ta bort en produkt ur kundvagnen (använd unset())
     public function removeProduct($product)
     {
+        unset($this->items[$product->getId()]);
     }
 
     //Skall returnera totala antalet produkter i kundvagnen
@@ -52,15 +59,14 @@ class Cart
 
 
     //VG: Tänk på att ett cartitem kan ha olika quantity
-    public function getTotalSum($items)
+    public function getTotalSum()
     {
-
         $sum = 0;
 
-        foreach ($items as $item) {
-            $sum += $items["price"];
+        foreach ($this->items as $item) {
+            $sum += $item ->getProduct()->getPrice();
         }
 
-        return $sum; // 5
+        return $sum;
     }
 }
