@@ -42,9 +42,17 @@ class Cart
     //OBS: Ej antalet unika produkter
     public function getTotalQuantity()
     {
-        $totQuantity = count($this->items);
+            {
 
-        return $totQuantity;
+        $quantity = 0;
+
+        foreach ($this->items as $item) {
+
+            $quantity += $item->getQuantity();
+
+        
+
+        return $quantity;
     }
 
     //Skall räkna ihop totalsumman för alla produkter i kundvagnen
