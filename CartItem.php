@@ -15,11 +15,13 @@ class CartItem
     }
 
     // TODO Skriv getters för alla properties
-    public function getproduct(){
+    public function getProduct()
+    {
         return $this->product;
     }
 
-    public function getquantity(){
+    public function getQuantity()
+    {
         return $this->quantity;
     }
 
@@ -29,20 +31,6 @@ class CartItem
     public function increaseQuantity()
     {
         $inc = $this->quantity += 1;
-
         return $inc;
-
-         // $inc = $this -> quantity =+2;
-        // return;
-
-
-        // $CartItem = new CartItem($product, 1);
-       
-        
-        // $this->items[$product->getId()] = $CartItem;
-
-        // //$this->items[$product->getId()] = $CartItem;
-        // // $items = ["id "=> "1", "title"=>"iPhone 11"];
-        // return $CartItem;
     }
 }

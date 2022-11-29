@@ -24,19 +24,11 @@ class Cart
     public function addProduct($product)
     {
 
-        //vi vill göra ett nytt cartItem och skapar det. inenhåller vilken produkt och hur många sv den produkten
         $CartItem = new CartItem($product, 1);
-        //lägger till den i kundvagnen
 
-        //push kan användas för lägga till en men vi skulle nog inte använda den..
-        //array_push($this->items, $CartItem);
         $this->items[$product->getId()] = $CartItem;
 
-        //$this->items[$product->getId()] = $CartItem;
-        // $items = ["id "=> "1", "title"=>"iPhone 11"];
         return $CartItem;
-
-        //$this->product = $product;
     }
 
 
@@ -64,7 +56,8 @@ class Cart
         $sum = 0;
 
         foreach ($this->items as $item) {
-            $sum += $item ->getProduct()->getPrice();
+            //$sum += $item->getProduct()->getPrice();
+            $sum += $item->getQuantity() * $item -> getProduct() -> getPrice();
         }
 
         return $sum;
