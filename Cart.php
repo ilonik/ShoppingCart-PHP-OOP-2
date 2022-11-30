@@ -24,21 +24,19 @@ class Cart
     public function addProduct($product)
     {
 
+        //spara Id på produkten. den kan vi återanvända
+        $id = $product->getId();
+        // vi kollar om getID finns i vår array. (omgjort till variabel)
+        if (isset($this->items[$id])) {
 
+            $this->items[$id]->increaseQuantity();
 
-        //if (product)
-
-        $CartItem = new CartItem($product, 1);
-
-        $this->items[$product->getId()] = $CartItem;
-        
-        return $CartItem;
-        
-        // $CartItem = new CartItem($product, 1);
-
-        // $this->items[$product->getId()] = $CartItem;
-        
-        // return $CartItem;
+        } else {
+            $CartItem = new CartItem($product, 1);
+            //array_push($this->items, $CartItem);
+            $this->items[$product->getId()] = $CartItem;
+            return $CartItem;
+        }
     }
 
 
@@ -58,7 +56,6 @@ class Cart
         foreach ($this->items as $item) {
 
             $quantity += $item->getQuantity();
-
         }
 
         return $quantity;
@@ -74,7 +71,7 @@ class Cart
 
         foreach ($this->items as $item) {
             //$sum += $item->getProduct()->getPrice();
-            $sum += $item->getQuantity() * $item -> getProduct() -> getPrice();
+            $sum += $item->getQuantity() * $item->getProduct()->getPrice();
         }
 
         return $sum;
