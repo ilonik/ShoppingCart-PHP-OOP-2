@@ -42,7 +42,6 @@ class Cart
     //OBS: Ej antalet unika produkter
     public function getTotalQuantity()
     {
-            {
 
         $quantity = 0;
 
@@ -50,7 +49,7 @@ class Cart
 
             $quantity += $item->getQuantity();
 
-        
+        }
 
         return $quantity;
     }
