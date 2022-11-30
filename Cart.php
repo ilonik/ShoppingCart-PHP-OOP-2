@@ -24,11 +24,21 @@ class Cart
     public function addProduct($product)
     {
 
+
+
+        //if (product)
+
         $CartItem = new CartItem($product, 1);
 
         $this->items[$product->getId()] = $CartItem;
-
+        
         return $CartItem;
+        
+        // $CartItem = new CartItem($product, 1);
+
+        // $this->items[$product->getId()] = $CartItem;
+        
+        // return $CartItem;
     }
 
 
