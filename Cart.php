@@ -30,7 +30,6 @@ class Cart
         if (isset($this->items[$id])) {
 
             $this->items[$id]->increaseQuantity();
-
         } else {
             $CartItem = new CartItem($product, 1);
             //array_push($this->items, $CartItem);
@@ -56,6 +55,7 @@ class Cart
         foreach ($this->items as $item) {
 
             $quantity += $item->getQuantity();
+            //borde dessa inte stå tvärtom om tecknet? vi vill öka på egenskapen inte att egenskapen med funktionen?
         }
 
         return $quantity;

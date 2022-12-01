@@ -30,7 +30,7 @@ class CartItem
     //VG: Det skall inte vara möjligt att utöka så att antalet överstiger produktens $inStock.
     public function increaseQuantity()
     {
-        
+        //är nedan verkligen rätt? om man har 5 mobiler och 3 kvar i stock då?
         if($this->quantity< $this->product -> getInStock()){
 
             $this -> quantity += 1;
