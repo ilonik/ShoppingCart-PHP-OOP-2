@@ -33,12 +33,12 @@ class CartItem
         //är nedan verkligen rätt? om man har 5 mobiler och 3 kvar i stock då?
 
         //det vi BORDE göra är att getInstock ska vara typ:
-         if($this->product -> getInStock() > 0){
-        //if($this->quantity< $this->product -> getInStock()){
+        //if($this->product -> getInStock() > 0){
+        if ($this->quantity < $this->product->getInStock()) {
 
-            $this -> quantity += 1;
-        }else{
-            echo "kan inte lägga till. Slut i laget. SNOPET!";
+            $this->quantity += 1;
+        } else {
+            echo "Kan inte lägga till. Slut i lager";
         }
         //  $inc = $this->quantity += 1;
         //  return $inc;
